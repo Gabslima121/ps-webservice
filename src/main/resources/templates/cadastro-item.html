@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+	rel="stylesheet" />
+<title>Cadastro Item</title>
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-md fixed-top banner">
+			<div class="container">
+				<a class="navbar-brand" href="https://www.fiap.com.br">
+					<h1 style="color: black;">Spark Consult</h1>
+				</a>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav selecao">
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="index.html">Home</a></li>
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="">Lista de itens</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container conteudo-form">
+		<div class="orientacoes">
+			<h2>Orientações:</h2>
+			<ul class="mt-4 mb-4">
+				<li>Para cadastrar um novo item, voce precisa preencher todos
+					os campos com o simbolo <b>*</b> e após isso, basta clicar em
+					cadastrar.
+				</li>
+			</ul>
+		</div>
+
+		<hr>
+
+		<h2 class="mt-5 mb-5">Formulario para cadastro de novo item:</h2>
+
+		<form id="cadastrar-integrante" class="editar-form">
+			<div class="row ">
+				<div class="col-md-4 mb-3">
+					<label for="nome">Nome *</label> <input type="text"
+						class="form-control" id="nome" name="nome" placeholder="Nome">
+				</div>
+
+				<div class="col-md-4 mb-3">
+					<label for="tipo">Tipo *</label> <input type="text"
+						class="form-control" id="tipo" name="tipo" placeholder="Tipo">
+				</div>
+
+				<div class="col-md-4 mb-3">
+					<label for="responsabilidade">Responsabilidade *</label>
+					<div class="input-group">
+						<input type="text" class="form-control" id="responsabilidade"
+							name="responsabilidade" placeholder="Responsabilidade">
+					</div>
+				</div>
+			</div>
+
+			<div class="atualizar">
+				<button class="btn btn-outline-primary">Cadastrar
+					Integrante</button>
+				<input type='reset' class="btn btn-outline-primary"
+					value='Limpar todos os campos' />
+			</div>
+		</form>
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

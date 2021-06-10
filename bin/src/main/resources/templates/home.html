@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Inicio</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Financiamentos</a>
+        </div>
+    </nav>
+
+    <div class="card">
+
+        <div class="card-body">
+            <form th:action="@{nova-intention}">
+                <button class="btn btn-primary">Nova Intenção</button>
+            </form>
+
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Nome Cliente</th>
+                <th scope="col">Tipo Financiamento</th>
+                <th scope="col">Valor Financiamento</th>
+                <th scope="col">Parcelas</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="financiamento : ${financiamentos}">
+                <td th:text="${financiamento.nome}"></td>
+                <td th:text="${financiamento.tipo_financiamento}"></td>
+                <td th:text="${financiamento.vlr_intencao}"></td>
+                <td th:text="${financiamento.qtd_parcelamento}"></td>
+                <td class="text-center">
+                    <a class="btn btn-primary" th:href="@{/financiamento/{id}(id = ${financiamento.id})}">editar</a>
+                    <!--                    <a th:href="@{/produto/excluir/{id}(id = ${produto.id})}" class="btn btn btn-danger">excluir</a>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

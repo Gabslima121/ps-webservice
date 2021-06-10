@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Financiamento</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Intenção de Financiamento</a>
+        </div>
+    </nav>
+
+    <form method="POST" th:object="${financiamento}" th:action="@{/salvar-financiamento}">
+        <label for="nome-cliente" style="margin-top:20px" class="form-label">Cliente</label>
+        <div class="input-group mb-3">
+            <div><input type="hidden" th:field="*{id}"></div>
+            <input type="text" placeholder="Nome do Cliente" th:errorclass="is-invalid" class="form-control" id="nome-cliente" th:field="*{nome}">
+            <div th:errors="*{nome}" class="invalid-feedback"></div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Endereço" th:field="*{endereço}">
+            <div th:errors="*{endereço}" class="invalid-feedback"></div>
+            <input type="text" placeholder="Nº" class="form-control" th:errorclass="is-invalid" th:field="*{numero_casa}">
+            <div th:errors="*{numero_casa}" class="invalid-feedback"></div>
+            <input type="text" placeholder="Cidade" class="form-control" th:errorclass="is-invalid" th:field="*{cidade}">
+            <div th:errors="*{cidade}" class="invalid-feedback"></div>
+            <input type="text" placeholder="Estado" th:field="*{estado}" th:errorclass="is-invalid">
+            <div th:errors="*{estado}" class="invalid-feedback"></div>
+
+            <input type="text" placeholder="CEP" class="form-control" th:errorclass="is-invalid" th:field="*{cep}">
+
+            <div th:errors="*{cep}" class="invalid-feedback"></div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" placeholder="CPF" class="form-control" th:errorclass="is-invalid" th:field="*{cpf}">
+            <div th:errors="*{cpf}" class="invalid-feedback"></div>
+            <input type="text" placeholder="RG" class="form-control" th:errorclass="is-invalid" a th:field="*{rg}">
+            <div th:errors="*{rg}" class="invalid-feedback"></div>
+            <input type="date" placeholder="Data nascimento" class="form-control" th:errorclass="is-invalid" th:field="*{data_aniversario}">
+            <div th:errors="*{data_aniversario}" class="invalid-feedback"></div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="text" placeholder="Email" class="form-control" th:errorclass="is-invalid" th:field="*{email}">
+            <div th:errors="*{email}" class="invalid-feedback"></div>
+            <input type="text" placeholder="Telefone Residencial" class="form-control" th:errorclass="is-invalid" th:field="*{telefone}">
+            <div th:errors="*{telefone}" class="invalid-feedback"></div>
+            <input type="text" placeholder="Celular" class="form-control"  th:errorclass="is-invalid" th:field="*{celular}">
+            <div th:errors="*{celular}" class="invalid-feedback"></div>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Tipo financiamento" th:field="*{tipo_financiamento}">
+            <div th:errors="*{tipo_financiamento}" class="invalid-feedback"></div>
+            <input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Quantidade parcelamento"
+                   th:field="*{qtd_parcelamento}">
+            <div th:errors="*{qtd_parcelamento}" class="invalid-feedback"></div>
+            <input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Valor intenção" th:field="*{vlr_intencao}">
+            <div th:errors="*{vlr_intencao}" class="invalid-feedback"></div>
+            <input type="text" class="form-control" th:errorclass="is-invalid" placeholder="Salário" th:field="*{salario}">
+            <div th:errors="*{salario}" class="invalid-feedback"></div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
+
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

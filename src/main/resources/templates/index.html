@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+	rel="stylesheet" />
+<title>Home</title>
+
+<style>
+body {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	color: black;
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	scroll-behavior: none;
+}
+
+p {
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+	margin-top: 20px;
+}
+
+h1 {
+	font-size: 32px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 38.4px;
+}
+
+h2 {
+	font-size: 25px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 15.4px;
+}
+
+.banner {
+	background-color: #CD5C5C;
+}
+
+.selecao {
+	margin-left: 650px;
+}
+
+.conteudo-main {
+	margin-top: 100px;
+	height: 1000px;
+}
+
+.descritivo-servico {
+	margin-top: 10px;
+}
+
+.img-texto {
+	margin-top: 10px;
+	height: 600px;
+	/* background-image: url('./img/img-texto.jpg'); */
+	background-repeat: no-repeat;
+}
+
+.lista-servico {
+	margin-top: 20px;
+}
+
+.lista-fale {
+	margin-top: 10px;
+}
+
+.itens-servico {
+	margin-top: 10px;
+}
+
+.descricao-texto {
+	margin-top: 20px;
+}
+
+.fale-conosco {
+	height: 400px;
+}
+</style>
+</head>
+
+<body class="col-lg">
+	<header>
+		<nav class="navbar navbar-expand-md fixed-top banner">
+			<div class="container">
+				<a class="navbar-brand" href="https://www.fiap.com.br">
+					<h1 style="color: black;">Spark Consult</h1>
+				</a>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav selecao">
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="login.html">Login</a></li>
+
+						<li class="nav-item menu">
+							<form th:action="@{/cadastro-item}">
+								<a class="nav-link" style="color: black;" href="">Cadastro
+									de itens </a>
+							</form>
+						</li>
+
+						<li class="nav-item menu">
+							<a class="nav-link"	style="color: black;" href="lista-item.html">Lista de itens</a>
+						</li>
+
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="#fale-conosco">Fale conosco</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container conteudo-main">
+		<div class="row">
+			<div class="col-8">
+				<h2>Sobre a Spark Consult</h2>
+				<div class="img-texto"></div>
+				<p class="descricao-texto">Lorem, ipsum dolor sit amet
+					consectetur adipisicing elit. Optio vero vitae dicta, illum ut
+					similique? Ab laboriosam non quam esse obcaecati, iste itaque
+					consequuntur aliquam sapiente repudiandae, accusantium facere
+					necessitatibus. Lorem, ipsum dolor sit amet consectetur adipisicing
+					elit. Optio vero vitae dicta, illum ut similique? Ab laboriosam non
+					quam esse obcaecati, iste itaque consequuntur aliquam sapiente
+					repudiandae, accusantium facere necessitatibus. Lorem, ipsum dolor
+					sit amet consectetur adipisicing elit. Optio vero vitae dicta,
+					illum ut similique? Ab laboriosam non quam esse obcaecati, iste
+					itaque consequuntur aliquam sapiente repudiandae, accusantium
+					facere necessitatibus. Lorem, ipsum dolor sit amet consectetur
+					adipisicing elit. Optio vero vitae dicta, illum ut similique? Ab
+					laboriosam non quam esse obcaecati, iste itaque consequuntur
+					aliquam sapiente repudiandae, accusantium facere necessitatibus.</p>
+
+			</div>
+
+			<div class="col-4">
+				<!-- Arear envolvidas nos servicos -->
+				<div class="descritivo-servico">
+					<h2>Areas que nosso serviço cobre:</h2>
+					<ul class="lista-servico">
+						<li class="itens-servico">Desenvolvimento Mobile(Android e
+							IOS);</li>
+						<li class="itens-servico">Desenvolimento e Estruturação de
+							Banco de Dados;</li>
+						<li class="itens-servico">Criação de API;</li>
+						<li class="itens-servico">Criação de Site;</li>
+						<li class="itens-servico">Definição de Processos (SCRUM);</li>
+						<li class="itens-servico">Desenho da Infraestrutura
+							necessaria para a sua empresa;</li>
+					</ul>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="fale-conosco" id="fale-conosco">
+				<h1>Fale conosco</h1>
+				<div class='row'>
+					<div class="col-6">
+						<ul class="lista-fale">
+							<p>Telefone:</p>
+							<li class="list-group-item itens-servico">+55 (11)
+								91354-0090</li>
+							<p>E-mail:</p>
+							<li class="list-group-item itens-servico">faleconosco@sparkconsult.com.br</li>
+							<p>Localização:</p>
+							<li class="list-group-item itens-servico">Av. Lins de
+								Vasconcelos, 1222 - Aclimação, São Paulo - SP, 01538-001</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

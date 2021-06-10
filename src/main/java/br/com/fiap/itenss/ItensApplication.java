@@ -1,13 +1,13 @@
-package br.com.fiap.financiamentos;
+package br.com.fiap.itenss;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FinanciamentosApplication {
+public class ItensApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FinanciamentosApplication.class, args);
+		SpringApplication.run(ItensApplication.class, args);
 	}
 
 }

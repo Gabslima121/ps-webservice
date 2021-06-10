@@ -5,16 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class IndexController {
+public class RegisterController {
 	
-	@GetMapping("/")
-	   public ModelAndView cadastroItem(){
-	   return new ModelAndView("register");
-	}
-
 	@GetMapping("/register")
 	public ModelAndView RegisterItem() {
-		ModelAndView view = new ModelAndView("register");
+	ModelAndView view = new ModelAndView("register");
 //		view.addObject("cadastro");
 		return view;
 	}

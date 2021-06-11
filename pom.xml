@@ -12,8 +12,8 @@
 	<groupId>br.com.fiap</groupId>
 	<artifactId>financiamentos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>financiamentos</name>
-	<description>Gestão de produtos</description>
+	<name>Pessoas</name>
+	<description>Gestão de Pessoas</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

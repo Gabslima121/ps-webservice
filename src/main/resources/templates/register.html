@@ -10,19 +10,104 @@
 <link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
 	rel="stylesheet" />
 <title>Cadastro Item</title>
+
+	<style>
+		body {
+			margin: 0;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #212529;
+			background-color: #fff;
+			color: black;
+			font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+			sans-serif;
+		}
+
+		p {
+			font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+			sans-serif;
+			font-size: 18px;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: 400;
+			line-height: 30px;
+			margin-top: 20px;
+		}
+
+		h1 {
+			font-size: 32px;
+			font-style: italic;
+			font-variant: normal;
+			font-weight: 700;
+			line-height: 38.4px;
+		}
+
+		h2 {
+			font-size: 25px;
+			font-style: italic;
+			font-variant: normal;
+			font-weight: 700;
+			line-height: 15.4px;
+		}
+
+		.banner {
+			background-color: #CD5C5C;
+		}
+
+		.selecao {
+			margin-left: 650px;
+		}
+
+		.conteudo-main {
+			margin-top: 100px;
+			height: 1000px;
+		}
+
+		.descritivo-servico {
+			margin-top: 10px;
+		}
+
+		.img-texto {
+			margin-top: 10px;
+			height: 600px;
+			/* background-image: url('./img/img-texto.jpg'); */
+			background-repeat: no-repeat;
+		}
+
+		.lista-servico {
+			margin-top: 20px;
+		}
+
+		.lista-fale {
+			margin-top: 10px;
+		}
+
+		.itens-servico {
+			margin-top: 10px;
+		}
+
+		.descricao-texto {
+			margin-top: 20px;
+		}
+
+		.fale-conosco {
+			height: 400px;
+		}
+	</style>
 </head>
 
 <body>
-	<header>
+	<header >
 		<nav class="navbar navbar-expand-md fixed-top banner">
 			<div class="container">
-				<a class="navbar-brand" href="https://www.fiap.com.br">
+				<a class="navbar-brand">
 					<h1 style="color: black;">Spark Consult</h1>
 				</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav selecao">
 						<li class="nav-item menu"><a class="nav-link"
-							style="color: black;" href="index.html">Home</a></li>
+							style="color: black;" href="/home">Home</a></li>
 						<li class="nav-item menu"><a class="nav-link"
 							style="color: black;" href="">Lista de itens</a></li>
 					</ul>
@@ -31,7 +116,7 @@
 		</nav>
 	</header>
 
-	<div class="container conteudo-form">
+	<form class="container conteudo-form" style="margin-top: 100px">
 		<div class="orientacoes">
 			<h2>Orientações:</h2>
 			<ul class="mt-4 mb-4">
@@ -46,29 +131,40 @@
 
 		<h2 class="mt-5 mb-5">Formulario para cadastro de novo item:</h2>
 
-		<form id="cadastrar-integrante" class="editar-form">
+		<form method="POST" th:object="${integrante}" th:action="@{/save-integrante}">
 			<div class="row ">
 				<div class="col-md-4 mb-3">
-					<label for="nome">Nome *</label> <input type="text"
-						class="form-control" id="nome" name="nome" placeholder="Nome">
+					<input type="hidden" th:field="*{id}"></div>
+					<label for="nome">Nome *</label>
+					<input type="text"
+						class="form-control" id="nome" name="nome" placeholder="Nome" th:field="*{nome}"  th:errorclass="is-invalid">
+				<div th:errors="*{nome}" class="invalid-feedback"></div>
 				</div>
 
 				<div class="col-md-4 mb-3">
-					<label for="tipo">Tipo *</label> <input type="text"
-						class="form-control" id="tipo" name="tipo" placeholder="Tipo">
+					<label for="tipo">Tipo *</label>
+
+					<input type="text"
+						class="form-control" id="tipo" name="tipo" placeholder="Tipo"
+						   th:errorclass="is-invalid" th:field="*{tipo}"
+					>
+					<div th:errors="*{tipo}" class="invalid-feedback"></div>
 				</div>
 
 				<div class="col-md-4 mb-3">
 					<label for="responsabilidade">Responsabilidade *</label>
 					<div class="input-group">
 						<input type="text" class="form-control" id="responsabilidade"
-							name="responsabilidade" placeholder="Responsabilidade">
+							name="responsabilidade" placeholder="Responsabilidade"
+							   th:errorclass="is-invalid" th:field="*{responsabilidade}"
+						>
+						<div th:errors="*{responsabilidade}" class="invalid-feedback"></div>
 					</div>
 				</div>
-			</div>
+			</form>
 
 			<div class="atualizar">
-				<button class="btn btn-outline-primary">Cadastrar
+				<button type="submit" class="btn btn-outline-primary">Cadastrar
 					Integrante</button>
 				<input type='reset' class="btn btn-outline-primary"
 					value='Limpar todos os campos' />

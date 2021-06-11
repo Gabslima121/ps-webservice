@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -23,7 +23,6 @@ body {
 	color: black;
 	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
 		sans-serif;
-	scroll-behavior: none;
 }
 
 p {
@@ -103,23 +102,23 @@ h2 {
 	<header>
 		<nav class="navbar navbar-expand-md fixed-top banner">
 			<div class="container">
-				<a class="navbar-brand" href="https://www.fiap.com.br">
+				<a class="navbar-brand">
 					<h1 style="color: black;">Spark Consult</h1>
 				</a>
 				<div class="collapse navbar-collapse">
 					<ul class="navbar-nav selecao">
 						<li class="nav-item menu"><a class="nav-link"
-							style="color: black;" href="login.html">Login</a></li>
+							style="color: black;" href="/">Login</a></li>
 
 						<li class="nav-item menu">
-							<form th:action="@{/cadastro-item}">
-								<a class="nav-link" style="color: black;" href="">Cadastro
+
+								<a class="nav-link" href="/register" style="color: black;">Cadastro
 									de itens </a>
-							</form>
+
 						</li>
 
 						<li class="nav-item menu">
-							<a class="nav-link"	style="color: black;" href="lista-item.html">Lista de itens</a>
+							<a class="nav-link"	style="color: black;" href="#">Lista de itens</a>
 						</li>
 
 						<li class="nav-item menu"><a class="nav-link"

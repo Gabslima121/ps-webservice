@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class IndexController {
+public class HomeController {
 	
-	@GetMapping("/")
-	   public ModelAndView cadastroItem(){
-	   return new ModelAndView("cadastro-item");
+	@GetMapping("/home")
+	   public ModelAndView HomeItem(){
+	   return new ModelAndView("home");
 	}
+
 }

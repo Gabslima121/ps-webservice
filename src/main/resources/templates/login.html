@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login</title>
+
+<style>
+body {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	color: black;
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+}
+
+p {
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+	margin-top: 20px;
+}
+
+h1 {
+	font-size: 32px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 38.4px;
+}
+
+h2 {
+	font-size: 25px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 15.4px;
+}
+
+.banner {
+	background-color: #CD5C5C;
+}
+
+.selecao {
+	margin-left: 650px;
+}
+
+.conteudo-main {
+	margin-top: 100px;
+	height: 1000px;
+}
+
+.descritivo-servico {
+	margin-top: 10px;
+}
+
+.img-texto {
+	margin-top: 10px;
+	height: 600px;
+	/* background-image: url('./img/img-texto.jpg'); */
+	background-repeat: no-repeat;
+}
+
+.lista-servico {
+	margin-top: 20px;
+}
+
+.lista-fale {
+	margin-top: 10px;
+}
+
+.itens-servico {
+	margin-top: 10px;
+}
+
+.descricao-texto {
+	margin-top: 20px;
+}
+
+.fale-conosco {
+	height: 400px;
+}
+</style>
+</head>
+
+<body style="overflow: hidden;">
+<div
+		style="width: 100vw; height: 100vh; border: 1px solid; display: flex;flex-direction: column;align-items: center;justify-content: center;"
+>
+	<div style="width: 50%;height: 50%;background-color:#CD5C5C;border-radius: 10px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+		<div style="width: 50%;height: 80%;background-color:grey;border-radius: 10px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+			<h1>Bem Vindos</h1>
+			<form  method="POST" th:object="${usuario}" th:action="@{/login}"  style=" width: 70%;height: 50%;;display: flex;flex-direction: column;align-items: center;justify-content: space-around;">
+				<input type="hidden" th:field="*{id}">
+				<input placeholder="Login" type="text" name="login" th:field="*{usuario}"  th:errorclass="is-invalid" id="login" style="border: none;border-radius: 4px;text-align:center;">
+				<div th:errors="*{usuario}" class="invalid-feedback"></div>
+				<input placeholder="Senha" type="password" name="senha" th:field="*{senha}"  th:errorclass="is-invalid" id="senha" style="border: none;border-radius: 4px;text-align:center;">
+				<div th:errors="*{senha}" class="invalid-feedback"></div>
+				<button type="submit">Entrar</button>
+
+			</form>
+		</div>
+	</div>
+
+
+</div>
+
+</body>
+
+</html>

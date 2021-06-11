@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,8 +26,8 @@ public class RegisterController {
 		return view;
 	}
 
-	@PostMapping("save-integrante")
-	public String saveIntegrante(@Valid Integrante integrante, BindingResult result, Model model) {
+	@PostMapping("/salvar-integrante")
+	public String salvaIntegrante(@Valid Integrante integrante, BindingResult result, Model model) {
 		if(result.hasErrors()) {
 			model.addAttribute(integrante);
 			return "register";
@@ -36,4 +37,12 @@ public class RegisterController {
 			return "redirect:/home";
 		}
 	}
+	
+	@GetMapping("/integrante/{id}")
+    public ModelAndView editarProduto(@PathVariable Long id) {
+        ModelAndView view = new ModelAndView("register");
+        Integrante integrante = service.editarIntegrante(id);
+        view.addObject("integrante", integrante);
+        return view;
+    }
 }

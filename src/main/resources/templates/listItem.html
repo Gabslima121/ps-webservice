@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstraptheme.min.css}"
+	rel="stylesheet" />
+
+<title>Lista Item</title>
+
+<style>
+body {
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	color: black;
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	scroll-behavior: none;
+}
+
+p {
+	font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial,
+		sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+	margin-top: 20px;
+}
+
+h1 {
+	font-size: 32px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 38.4px;
+}
+
+h2 {
+	font-size: 25px;
+	font-style: italic;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 15.4px;
+}
+
+.banner {
+	background-color: #CD5C5C;
+}
+
+.selecao {
+	margin-left: 900px;
+}
+
+.conteudo-lista {
+	margin-top: 100px;
+}
+
+.tabela {
+	margin-top: 100px;
+}
+</style>
+
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-md fixed-top banner">
+			<div class="container">
+				<a class="navbar-brand" href="https://www.fiap.com.br">
+					<h1 style="color: black;">Spark Consult</h1>
+				</a>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav selecao">
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="index.html">Home</a></li>
+						<li class="nav-item menu"><a class="nav-link"
+							style="color: black;" href="/register">Cadastrar Item</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container conteudo-lista">
+		<div class="tabela">
+			<div class="md-6">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Tipo</th>
+							<th>Responsabilidade</th>
+							<th colspan="1"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="integrante : ${integrante}">
+							<td th:text="${integrante.nome}"></td>
+							<td th:text="${integrante.tipo}"></td>
+							<td th:text="${integrante.responsabilidade}"></td>
+							<td><a class="btn btn-primary"
+								th:href="@{/integrante/{id}(id = ${integrante.id})}">editar</a>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+
+</html>
